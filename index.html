@@ -1,0 +1,209 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101827">
+<title>ATLAS CEO ACADEMY</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#101827;color:#f4f6fb;font-family:Arial,sans-serif}
+header{padding:25px 18px;background:#17243a;border-bottom:1px solid #34445e}
+h1{margin:0;color:#e9b84b;letter-spacing:2px;font-size:25px}
+.subtitle{color:#aab7ca;font-size:12px;margin-top:7px}
+main{padding:16px;max-width:750px;margin:auto}
+.card{background:#1b2940;border:1px solid #34445e;border-radius:13px;padding:16px;margin-bottom:14px}
+h2{font-size:17px;color:#e9b84b;margin:0 0 13px}
+h3{font-size:15px;margin:0 0 7px}
+.muted{color:#aab7ca;font-size:13px;line-height:1.5}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.stat{background:#243650;border-radius:10px;padding:13px}
+.number{font-size:25px;font-weight:bold;color:#e9b84b}
+button{background:#dba83f;color:#142033;border:0;padding:11px 14px;border-radius:8px;font-weight:bold;cursor:pointer;margin-top:8px}
+button:disabled{opacity:.45}
+.quest{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid #34445e}
+.quest input{width:19px;height:19px}
+.progress{height:10px;background:#34445e;border-radius:10px;overflow:hidden;margin-top:10px}
+.bar{height:100%;background:#e9b84b;width:0}
+.discipline{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #34445e;font-size:14px}
+.question{padding:12px 0;border-bottom:1px solid #34445e}
+label{display:block;font-size:13px;margin:9px 0}
+input[type=radio]{margin-right:7px}
+footer{text-align:center;color:#8291a8;font-size:11px;padding:25px}
+</style>
+</head>
+<body>
+<header>
+<h1>⚔ ATLAS</h1>
+<div class="subtitle">CEO ACADEMY · YOUR JOURNEY TO EXCELLENCE</div>
+</header>
+<main>
+<section class="card">
+<h2>COMMANDER DASHBOARD</h2>
+<div class="stats">
+<div class="stat"><div class="muted">TOTAL XP</div><div class="number" id="xp">240</div></div>
+<div class="stat"><div class="muted">CURRENT LEVEL</div><div class="number" id="level">1</div></div>
+<div class="stat"><div class="muted">ACADEMY RANK</div><div class="number" id="rank">E</div></div>
+<div class="stat"><div class="muted">QUESTS COMPLETED</div><div class="number" id="done">0</div></div>
+</div>
+<p class="muted">Progress to next level: <span id="progressText">240 / 500 XP</span></p>
+<div class="progress"><div class="bar" id="progressBar"></div></div>
+</section>
+
+<section class="card">
+<h2>YOUR EIGHT CEO DISCIPLINES</h2>
+<div class="discipline">01 · Finance <span>💰</span></div>
+<div class="discipline">02 · International Trade <span>🌍</span></div>
+<div class="discipline">03 · Commercial & Sales <span>🤝</span></div>
+<div class="discipline">04 · Leadership <span>👑</span></div>
+<div class="discipline">05 · International Strategy <span>♟️</span></div>
+<div class="discipline">06 · Operations & Logistics <span>🚢</span></div>
+<div class="discipline">07 · Compliance & Risk <span>🛡️</span></div>
+<div class="discipline">08 · Technology & ERP <span>💻</span></div>
+</section>
+
+<section class="card">
+<h2>DAILY TRAINING QUESTS</h2>
+<p class="muted">Complete your daily challenges. Each quest awards 10 XP. Each can be claimed once per day.</p>
+<div id="quests"></div>
+</section>
+
+<section class="card">
+<h2>LESSON 01 · FINANCE</h2>
+<h3>Profit vs Cash Flow</h3>
+<p class="muted"><b>Profit</b> is what remains after expenses are deducted from revenue.</p>
+<p class="muted"><b>Cash flow</b> is the actual money entering and leaving your business.</p>
+<p class="muted">SOUBLA EXAMPLE: Imagine SOUBLA sells a container for $50,000. Its total costs are $42,000. The accounting profit is $8,000. But if the customer has not paid yet, SOUBLA may have little cash available to pay its bills.</p>
+<p class="muted"><b>CEO lesson:</b> A profitable company can still fail if it runs out of cash. Always monitor both profit and cash flow.</p>
+</section>
+
+<section class="card">
+<h2>KNOWLEDGE EXAMINATION</h2>
+<p class="muted">Pass with at least 4 correct answers out of 5 to earn 50 XP.</p>
+<form id="exam">
+<div class="question">
+<b>1. What is profit?</b>
+<label><input type="radio" name="q1" value="a"> Total money in the bank</label>
+<label><input type="radio" name="q1" value="b"> Revenue minus expenses</label>
+<label><input type="radio" name="q1" value="c"> Total customer orders</label>
+</div>
+<div class="question">
+<b>2. What does cash flow measure?</b>
+<label><input type="radio" name="q2" value="a"> Money entering and leaving the business</label>
+<label><input type="radio" name="q2" value="b"> Number of employees</label>
+<label><input type="radio" name="q2" value="c"> Product quality</label>
+</div>
+<div class="question">
+<b>3. Can a profitable company run out of cash?</b>
+<label><input type="radio" name="q3" value="a"> No, never</label>
+<label><input type="radio" name="q3" value="b"> Yes</label>
+<label><input type="radio" name="q3" value="c"> Only if it has no customers</label>
+</div>
+<div class="question">
+<b>4. SOUBLA sells goods but the customer has not paid. What is the risk?</b>
+<label><input type="radio" name="q4" value="a"> Cash shortage</label>
+<label><input type="radio" name="q4" value="b"> Automatic profit</label>
+<label><input type="radio" name="q4" value="c"> No financial risk</label>
+</div>
+<div class="question">
+<b>5. What should a CEO monitor?</b>
+<label><input type="radio" name="q5" value="a"> Only sales</label>
+<label><input type="radio" name="q5" value="b"> Only profit</label>
+<label><input type="radio" name="q5" value="c"> Both profit and cash flow</label>
+</div>
+<button type="submit">SUBMIT EXAMINATION</button>
+</form>
+<p id="result" class="muted"></p>
+</section>
+
+<section class="card">
+<h2>ATLAS COMMANDER'S RULE</h2>
+<p class="muted">Discipline. Knowledge. Strategy. Execution.</p>
+<p><b style="color:#e9b84b">Never give up. Never stop learning.</b></p>
+</section>
+</main>
+<footer>ATLAS CEO ACADEMY · VERSION 1.0 · BUILT FOR THE SOUBLA JOURNEY</footer>
+
+<script>
+const today = new Date().toISOString().slice(0,10);
+let data = JSON.parse(localStorage.getItem("atlasProgress") || "{}");
+if(data.xp === undefined) data.xp = 240;
+if(data.questDate !== today){
+ data.questDate = today;
+ data.quests = [];
+}
+if(!data.quests) data.quests = [];
+if(!data.examPassed) data.examPassed = false;
+
+function save(){
+ localStorage.setItem("atlasProgress",JSON.stringify(data));
+ update();
+}
+function update(){
+ let level=Math.floor(data.xp/500)+1;
+ let within=data.xp%500;
+ document.getElementById("xp").textContent=data.xp;
+ document.getElementById("level").textContent=level;
+ document.getElementById("rank").textContent=
+ level>=10?"A":level>=5?"B":level>=3?"C":level>=2?"D":"E";
+ document.getElementById("done").textContent=data.quests.length;
+ document.getElementById("progressText").textContent=within+" / 500 XP";
+ document.getElementById("progressBar").style.width=(within/500*100)+"%";
+}
+const tasks=[
+"Study one finance concept",
+"Review SOUBLA cash flow",
+"Learn one international trade rule",
+"Study one negotiation technique",
+"Write down one CEO improvement"
+];
+function renderQuests(){
+ let el=document.getElementById("quests");
+ el.innerHTML="";
+ tasks.forEach((task,i)=>{
+ let row=document.createElement("div");
+ row.className="quest";
+ let box=document.createElement("input");
+ box.type="checkbox";
+ box.checked=data.quests.includes(i);
+ box.disabled=box.checked;
+ box.onchange=()=>{
+  data.quests.push(i);
+  data.xp+=10;
+  save();
+  renderQuests();
+ };
+ let span=document.createElement("span");
+ span.textContent=task+" (+10 XP)";
+ row.append(box,span);
+ el.appendChild(row);
+ });
+}
+document.getElementById("exam").addEventListener("submit",function(e){
+ e.preventDefault();
+ if(data.examPassed){
+  document.getElementById("result").textContent="You have already earned the 50 XP exam reward.";
+  return;
+ }
+ const answers={q1:"b",q2:"a",q3:"b",q4:"a",q5:"c"};
+ let score=0;
+ for(let q in answers){
+  let selected=document.querySelector('input[name="'+q+'"]:checked');
+  if(selected && selected.value===answers[q]) score++;
+ }
+ let result=document.getElementById("result");
+ if(score>=4){
+  data.xp+=50;
+  data.examPassed=true;
+  save();
+  result.textContent="PASSED! Score: "+score+"/5. You earned 50 XP. Excellent work, Commander!";
+ }else{
+  result.textContent="Score: "+score+"/5. You need 4 correct answers. Review the lesson and try again.";
+ }
+});
+renderQuests();
+update();
+</script>
+</body>
+</html>
